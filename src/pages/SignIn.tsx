@@ -51,7 +51,7 @@ function SignIn() {
             id="email"
             type="email"
             placeholder="Email"
-            defaultValue="demo@expensr.co.uk"
+            defaultValue=""
             required
           />
         </FormGroup>
@@ -63,7 +63,7 @@ function SignIn() {
             id="password"
             type="password"
             placeholder="Password"
-            defaultValue="demo2023"
+            defaultValue=""
             required
           />
         </FormGroup>
