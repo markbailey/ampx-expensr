@@ -56,7 +56,7 @@ function SignIn() {
         </FormGroup>
 
         <FormGroup>
-          <Label htmlFor="#password">Email Address</Label>
+          <Label htmlFor="#password">Password</Label>
           <Input
             ref={passwordRef}
             id="password"
