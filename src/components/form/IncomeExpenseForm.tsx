@@ -65,7 +65,7 @@ function IncomeExpenseForm(props: FormProps) {
             type="text"
             name="name"
             id="name"
-            placeholder="Type product name"
+            placeholder="Type item name"
             defaultValue={data?.name}
             required
           />
