@@ -45,13 +45,13 @@ function Dashboard() {
   const { modalProps, showModal, hideModal, renderForm } = useModalForm(categories);
   const remainingAmount = useMemo(() => totalIncome - totalExpenses, [totalExpenses, totalIncome]);
 
-  const onAddItemClick = (type: 'income' | 'expense' | 'category') => () => {
+  const onAddItemClick = (type: IncomeExpenseType | 'category') => () => {
     const title = type === 'category' ? 'Add category' : `Add ${type}`;
     const options = { type, action: 'add', title } as ModalOptions;
     showModal(options);
   };
 
-  const onEditItemClick = (type: 'income' | 'expense' | 'category') => (id: string) => {
+  const onEditItemClick = (type: IncomeExpenseType | 'category') => (id: string) => {
     const title = type === 'category' ? 'Edit category' : `Edit ${type}`;
     const options = { type, action: 'edit', title } as ModalOptions;
     const data =
