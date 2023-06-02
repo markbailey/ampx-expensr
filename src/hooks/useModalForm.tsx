@@ -39,6 +39,23 @@ function useModalForm(categories: Category[]) {
     setFormProps({} as FormProps);
   };
 
+  const onFormSubmit = (type: FormType, action: FormAction) => (data: IncomeExpense | Category) => {
+    hideModal();
+    switch (type) {
+      case 'category':
+        if (action === 'edit') updateCategory(data as Category);
+        else addCategory(data as Category);
+        break;
+      case 'income':
+      case 'expense':
+        if (action === 'edit') updateIncomeExpense(data as IncomeExpense);
+        else addIncomeExpense(data as IncomeExpense);
+        break;
+      default:
+        break;
+    }
+  };
+
   const showModal = (options: ModalOptions) => {
     const { title, type, action, data } = options;
     setModalProps({ open: true, title });
@@ -51,23 +68,6 @@ function useModalForm(categories: Category[]) {
       case 'income':
       case 'expense':
         setFormProps({ type, data, categories, onSubmit: onFormSubmit(type, action) } as FormProps);
-        break;
-      default:
-        break;
-    }
-  };
-
-  const onFormSubmit = (type: FormType, action: FormAction) => (data: IncomeExpense | Category) => {
-    hideModal();
-    switch (type) {
-      case 'category':
-        if (action === 'edit') updateCategory(data as Category);
-        else addCategory(data as Category);
-        break;
-      case 'income':
-      case 'expense':
-        if (action === 'edit') updateIncomeExpense(data as IncomeExpense);
-        else addIncomeExpense(data as IncomeExpense);
         break;
       default:
         break;
