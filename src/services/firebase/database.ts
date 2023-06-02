@@ -22,7 +22,6 @@ export const databaseApi = createApi({
       async queryFn(item, api) {
         const { auth } = api.getState() as RootState;
         const userId = auth.user?.uid as string;
-        console.log({ ...item, userId });
         const date = new Date(item.date.seconds * 1000);
         const docRef = await addDoc(collection(db, 'incomeAndExpenses'), { ...item, date, userId });
         return { data: docRef.id };
